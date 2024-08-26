@@ -8,8 +8,6 @@ export function useEnsureUserIsLoggedInOrNot(route: routes) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log(user);
-    console.log(route);
     if (!user) {
       if (route === routes.signIn) {
         navigate(routes.signIn);

@@ -52,7 +52,6 @@ export default class UserController {
   }
 
   static async sendEmailVerification(email: string): Promise<void> {
-    console.log("SENDING EMAIL VERIFICATION");
     await AxiosClient.post({
       url: Endpoints.users.auth.sendEmailVerification,
       parser: () => {},

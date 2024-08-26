@@ -7,8 +7,6 @@ export function useUser() {
     .map((u) => u === null)
     .find((v) => v === true);
 
-  console.log(user);
-  console.log(checkIfAnyOfKeysAreNull);
   if (checkIfAnyOfKeysAreNull) {
     return null;
   }

@@ -26,7 +26,6 @@ export class ErrorHandler {
     } else if (error instanceof AxiosError) {
       return error.message;
     } else {
-      console.log(error);
       return "Something went wrong!";
     }
   }

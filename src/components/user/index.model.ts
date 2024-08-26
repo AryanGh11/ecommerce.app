@@ -71,7 +71,6 @@ class User {
   }
 
   public static fromJson(data: any): User {
-    console.log(data);
     if (
       typeof data.id !== "string" ||
       typeof data.nickname !== "string" ||
