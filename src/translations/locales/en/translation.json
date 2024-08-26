@@ -1,0 +1,21 @@
+{
+  "signIn": "Sign In",
+  "emailNotValid": "Please enter a valid email address",
+  "audio": "Audio",
+  "itsModularAndDesignedToLast": "It's modular and designed to last",
+  "forgotPassword": "Forgot Password",
+  "dontHaveAnAccount": "Don't have an account?",
+  "haveAnAccount": "Have an account?",
+  "signUp": "Sign Up",
+  "signUpHere": "Sign Up here",
+  "signInHere": "Sign In here",
+  "nicknameCannotBeEmpty": "Nickname cannot be empty",
+  "usernameCannotBeEmpty": "Username cannot be empty",
+  "emailVerification": "Email verification",
+  "emailSuccessfullyVerified": "Email successfully verified",
+  "thankYouForYourTime": "Thank you for your time",
+  "pleaseClickOnThisButtonToSendEmailVerification": "Please click on this button to send email verification",
+  "pleaseCheckYourEmail": "Email verification has been sent. Please check you email to complete Sign in",
+  "backToHome": "Back to home",
+  "sendEmail": "Send email"
+}
