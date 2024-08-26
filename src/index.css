@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 html {
-  font-size: 16px;
-  @apply bg-background text-foreground leading-6 min-w-[250px];
+  font-size: 14px;
+  @apply bg-background text-foreground min-w-[250px];
 }
 
 * {
@@ -13,8 +13,30 @@ html {
   box-sizing: border-box;
   outline: none;
   border: none;
-  font-family: "new-atten-normal";
+  font-family: "inter-normal";
   font-size: 14px;
   user-select: none;
   @apply transition-colors;
+}
+
+/* intall "inter" fonts */
+@font-face {
+  font-family: "inter-normal";
+  src: url("./assets/fonts/inter/Inter-Regular.ttf");
+}
+@font-face {
+  font-family: "inter-thin";
+  src: url("./assets/fonts/inter/Inter-Thin.ttf");
+}
+@font-face {
+  font-family: "inter-medium";
+  src: url("./assets/fonts/inter/Inter-Medium.ttf");
+}
+@font-face {
+  font-family: "inter-bold";
+  src: url("./assets/fonts/inter/Inter-Bold.ttf");
+}
+@font-face {
+  font-family: "inter-extra-bold";
+  src: url("./assets/fonts/inter/Inter-ExtraBold.ttf");
 }
