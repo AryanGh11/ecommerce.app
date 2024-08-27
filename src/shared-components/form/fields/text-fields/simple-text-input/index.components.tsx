@@ -2,8 +2,8 @@ import SimpleInput from "../index.component";
 
 import { withTranslation } from "react-i18next";
 import { WithTFunction } from "src/types/WithTFunction";
+import { FormFieldErrorMessage } from "../../error-message";
 import { SimpleTextInputProps, SimpleTextInputState } from "./index.interfaces";
-import { FormFieldErrorMessage } from "src/shared-components/form-field-error-message";
 
 class SimpleTextInput extends SimpleInput<
   string,

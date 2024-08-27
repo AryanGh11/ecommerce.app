@@ -1,10 +1,7 @@
 import { Component, ReactNode } from "react";
 import { SnackbarErrorIcon } from "src/assets/icons";
 import { AnimatePresence, motion } from "framer-motion";
-
-interface FormFieldErrorMessageProps {
-  errorMessage: string | null;
-}
+import { FormFieldErrorMessageProps } from "./index.interface";
 
 export class FormFieldErrorMessage extends Component<FormFieldErrorMessageProps> {
   render(): ReactNode {

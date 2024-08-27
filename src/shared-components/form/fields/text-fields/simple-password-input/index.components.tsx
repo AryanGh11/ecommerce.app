@@ -3,7 +3,7 @@ import SimpleInput from "../index.component";
 import { withTranslation } from "react-i18next";
 import { WithTFunction } from "src/types/WithTFunction";
 import { CloseEyeIcon, EyeIcon } from "src/assets/icons";
-import { FormFieldErrorMessage } from "src/shared-components/form-field-error-message";
+import { FormFieldErrorMessage } from "../../error-message";
 
 import {
   SimplePasswordInputProps,
