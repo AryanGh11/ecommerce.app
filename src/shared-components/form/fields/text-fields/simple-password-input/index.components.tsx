@@ -3,6 +3,7 @@ import SimpleInput from "../index.component";
 import { withTranslation } from "react-i18next";
 import { WithTFunction } from "src/types/WithTFunction";
 import { CloseEyeIcon, EyeIcon } from "src/assets/icons";
+import { BaseSimpleTextField } from "../index.component";
 import { FormFieldErrorMessage } from "../../error-message";
 
 import {
@@ -40,19 +41,19 @@ class SimplePasswordInput extends SimpleInput<
       <div className="flex flex-col gap-2">
         <div className="relative">
           {/* icon */}
-          <span className="absolute left-4 top-[50%] -translate-y-[50%]">
+          <span className="absolute left-4 top-[50%] -translate-y-[50%] z-[1]">
             {icon}
           </span>
-          <input
+          <BaseSimpleTextField
             id={id}
-            className="w-full h-14 flex justify-center items-center px-4 pl-12 pr-12 text-sm rounded-xl bg-white selection:bg-foreground selection:text-background placeholder:text-on-background2 border-solid border-0 border-foreground focus:border-2 transition-all"
+            className="pl-12 pr-12"
             name={name}
             type={isPasswordHidden ? "password" : "text"}
             placeholder={placeholder}
             value={value}
             onChange={(e) => this.onInputChange(e)}
-            autoFocus={false}
             maxLength={maxLength}
+            autoFocus={false}
           />
           {/* eye icon */}
           <span
@@ -72,16 +73,15 @@ class SimplePasswordInput extends SimpleInput<
     ) : (
       <div className="flex flex-col gap-2">
         <div className="relative">
-          <input
+          <BaseSimpleTextField
             id={id}
-            className="w-full h-14 flex justify-center items-center px-4 text-sm rounded-xl bg-white selection:bg-foreground selection:text-background placeholder:text-on-background2 border-solid border-0 border-foreground focus:border-2 transition-all"
             name={name}
             type={isPasswordHidden ? "password" : "text"}
             placeholder={placeholder}
             value={value}
             onChange={(e) => this.onInputChange(e)}
-            autoFocus={false}
             maxLength={maxLength}
+            autoFocus={false}
           />
           {/* eye icon */}
           <span

@@ -32,3 +32,42 @@ export default abstract class SimpleInput<
 
   abstract render(): ReactElement<P> | null;
 }
+
+export function BaseSimpleTextField({
+  id,
+  name,
+  type,
+  placeholder,
+  value,
+  onChange,
+  maxLength,
+  disabled,
+  autoFocus,
+  className,
+}: {
+  id: string;
+  name: string;
+  type: string;
+  placeholder: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  maxLength: number;
+  disabled?: boolean;
+  autoFocus?: boolean;
+  className?: string;
+}) {
+  return (
+    <input
+      id={id}
+      className={`w-full h-14 flex justify-center items-center px-4 text-sm rounded-xl bg-white selection:bg-foreground selection:text-background placeholder:text-on-background2 outline-2 focus:outline transition-all ${className}`}
+      name={name}
+      type={type}
+      placeholder={placeholder}
+      value={value}
+      onChange={onChange}
+      maxLength={maxLength}
+      disabled={disabled}
+      autoFocus={autoFocus}
+    />
+  );
+}

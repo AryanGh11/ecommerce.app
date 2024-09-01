@@ -10,6 +10,8 @@ module.exports = {
         primary: "var(--primary)",
         foreground: "var(--foreground)",
         accent: "var(--accent)",
+        grey: "var(--grey)",
+        "grey-dark": "var(--grey-dark)",
       },
       fontFamily: {
         // inter fonts
@@ -21,6 +23,9 @@ module.exports = {
       },
       borderWidth: {
         1: "1px",
+      },
+      backdropBlur: {
+        xs: "2px",
       },
     },
   },
@@ -35,6 +40,8 @@ module.exports = {
           "--primary": "#0ACF83",
           "--foreground": "#000000",
           "--accent": "#FFC120",
+          "--grey": "#BABABA",
+          "--grey-dark": "#7F7F7F",
         },
         dark: {
           "--background": "#101010",
@@ -43,6 +50,8 @@ module.exports = {
           "--primary": "#0ACF83",
           "--foreground": "#FFFFFF",
           "--accent": "#FFC120",
+          "--grey": "#BABABA",
+          "--grey-dark": "#7F7F7F",
         },
       },
     ],

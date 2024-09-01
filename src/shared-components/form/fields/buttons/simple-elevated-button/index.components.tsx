@@ -29,16 +29,17 @@ class SimpleElevatedButton extends Component<
   };
 
   render(): ReactNode {
-    const { id, disabled, text, className } = this.props;
+    const { id, disabled, text, type, className } = this.props;
     const { isLoading } = this.state;
 
     return (
       <button
         id={id}
-        className={`w-full h-14 flex items-center justify-center px-4 bg-primary rounded-xl text-background disabled:cursor-not-allowed [&:not(:disabled)]:hover:brightness-95 overflow-hidden text-ellipsis text-nowrap font-inter-bold shadow-md ${className}`}
+        className={`w-full h-14 flex items-center justify-center px-4 bg-primary rounded-xl text-background disabled:bg-grey disabled:cursor-not-allowed [&:not(:disabled)]:hover:brightness-95 overflow-hidden text-ellipsis text-nowrap font-inter-bold shadow-md ${className}`}
         onClick={(e) => this._onClick(e)}
         disabled={disabled || isLoading}
         title={text}
+        type={type}
       >
         {isLoading ? (
           <span className="loading loading-spinner" />
