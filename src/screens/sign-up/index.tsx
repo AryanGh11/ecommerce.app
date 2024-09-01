@@ -4,7 +4,6 @@ import manWithHeadphoneImage from "src/assets/images/man-with-headphone.png";
 
 import { useState } from "react";
 import { routes } from "src/routes";
-import { useUserStore } from "src/store";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { UserController } from "src/components/user";
@@ -17,7 +16,6 @@ export default function SignUpScreen() {
   useEnsureUserIsLoggedInOrNot(routes.signUp);
 
   const navigate = useNavigate();
-  const userStore = useUserStore();
 
   const [nickname, setNickname] = useState<string>("");
   const [username, setUsername] = useState<string>("");
@@ -69,14 +67,12 @@ export default function SignUpScreen() {
 
     try {
       // create user, unverified
-      const newUser = await UserController.signUpWithEmailAndPassword({
+      await UserController.signUpWithEmailAndPassword({
         nickname,
         username,
         email,
         password,
       });
-      // set new user to store
-      userStore.setUser(newUser);
       // navigate to email verification screen
       navigate(routes.emailVerification);
     } catch (e) {

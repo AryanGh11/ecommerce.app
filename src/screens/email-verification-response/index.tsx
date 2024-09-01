@@ -3,21 +3,16 @@ import manWithHeadphoneImage from "src/assets/images/man-with-headphone.png";
 
 import { useEffect } from "react";
 import { routes } from "src/routes";
-import { useUserStore } from "src/store";
 import { User } from "src/components/user";
-import { useUser } from "src/hooks/useUser";
 import { useTranslation } from "react-i18next";
-import { Link, useLocation } from "react-router-dom";
-import { useEnsureUserIsLoggedInOrNot } from "src/utils/ensureUserIsLoggedInOrNot";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { SimpleElevatedButton } from "src/shared-components/form/fields/buttons/simple-elevated-button";
 
 export default function EmailVerificationResponseScreen() {
   const { t } = useTranslation();
 
-  useEnsureUserIsLoggedInOrNot(routes.emailVerificationResponse);
-
-  const userStore = useUserStore();
-  const currentUser = useUser();
+  const user = User.getInstance();
+  const navigate = useNavigate();
 
   const location = useLocation();
   const success: boolean =
@@ -26,22 +21,16 @@ export default function EmailVerificationResponseScreen() {
       : false;
 
   useEffect(() => {
+    if (!user) {
+      // redirect to sign up if the user was null
+      navigate(routes.signUp);
+    }
+
     if (success) {
       // update user in store
-      userStore.setUser(
-        new User({
-          id: userStore.id!,
-          nickname: currentUser!.nickname!,
-          username: currentUser!.username!,
-          email: currentUser!.email!,
-          authToken: currentUser!.authToken!,
-          isEmailVerified: true,
-          createdAt: currentUser!.createdAt!,
-          updatedAt: currentUser!.updatedAt!,
-        })
-      );
+      user.updateIsEmailVerified(true);
     }
-  }, [success]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [success, location]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <section

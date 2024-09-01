@@ -4,7 +4,7 @@ import manWithHeadphoneImage from "src/assets/images/man-with-headphone.png";
 
 import { useState } from "react";
 import { routes } from "src/routes";
-import { useUserStore } from "src/store";
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { UserController } from "src/components/user";
 import { ErrorHandler } from "src/abstracts/handleError";
@@ -12,10 +12,9 @@ import { useEnsureUserIsLoggedInOrNot } from "src/utils/ensureUserIsLoggedInOrNo
 
 export default function SignInScreen() {
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   useEnsureUserIsLoggedInOrNot(routes.signIn);
-
-  const userStore = useUserStore();
 
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -42,12 +41,12 @@ export default function SignInScreen() {
     if (emailValidator(email) || passwordValidator(password)) return;
 
     try {
-      const user = await UserController.signInWithEmailAndPassword({
+      await UserController.signInWithEmailAndPassword({
         email,
         password,
       });
-      // set user in store
-      userStore.setUser(user);
+      // redirect to home
+      navigate(routes.home);
     } catch (e) {
       ErrorHandler.displayError(e);
     }
