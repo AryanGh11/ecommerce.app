@@ -14,7 +14,7 @@ export default function HomeScreen() {
     if (Object.values(user).includes(null)) return;
 
     try {
-      const res = await user.getOne(user.id);
+      await user.getOne(user.id);
     } catch (e) {
       ErrorHandler.displayError(e);
     }
