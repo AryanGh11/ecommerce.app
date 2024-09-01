@@ -1,21 +1,35 @@
 import { routes } from "src/routes";
-import { useUserStore } from "src/store";
-import { useUser } from "src/hooks/useUser";
+import { User } from "src/components/user";
+import { useCallback, useEffect } from "react";
+import { ErrorHandler } from "src/abstracts/handleError";
 import { useEnsureUserIsLoggedInOrNot } from "src/utils/ensureUserIsLoggedInOrNot";
 
 export default function HomeScreen() {
-  const user = useUser();
-
   useEnsureUserIsLoggedInOrNot(routes.home);
 
-  const userStore = useUserStore();
+  const user = User.getInstance();
+
+  const getUserFromServerAndUpdate = useCallback(async () => {
+    // do nothing if user object has null value(s)
+    if (Object.values(user).includes(null)) return;
+
+    try {
+      const res = await user.getOne(user.id);
+    } catch (e) {
+      ErrorHandler.displayError(e);
+    }
+  }, [user]);
+
+  useEffect(() => {
+    getUserFromServerAndUpdate();
+  }, [getUserFromServerAndUpdate]);
 
   return (
     <div>
-      <h1>Hi {user?.nickname}!</h1>
+      <h1>Hi {user.nickname}</h1>
       <button
         onClick={() => {
-          userStore.clearUser();
+          user.signOut();
           window.location.reload();
         }}
       >

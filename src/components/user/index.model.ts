@@ -89,7 +89,7 @@ export class User {
   }
 
   public static fromJson(data: any): User {
-    const user = new User();
+    const user = User.getInstance();
 
     user.id = data.id;
     user.nickname = data.nickname;
@@ -103,6 +103,37 @@ export class User {
 
   public updateIsEmailVerified(isEmailVerified: boolean): void {
     this.isEmailVerified = isEmailVerified;
+  }
+
+  private setToLocalStorage(user: any): void {
+    // validate object
+    if (
+      typeof user.id !== "string" ||
+      typeof user.nickname !== "string" ||
+      typeof user.username !== "string" ||
+      typeof user.email !== "string" ||
+      typeof user.authToken !== "string" ||
+      typeof user.isEmailVerified !== "boolean"
+    ) {
+      ErrorHandler.displayError(new Error("invalid user object"));
+    }
+
+    localStorage.setItem("user_id", user.id);
+    localStorage.setItem("user_nickname", user.nickname);
+    localStorage.setItem("user_username", user.username);
+    localStorage.setItem("user_email", user.email);
+    localStorage.setItem("user_auth_token", user.authToken);
+    localStorage.setItem("user_is_email_verified", user.isEmailVerified);
+  }
+
+  private loadFromLocalStorage(): void {
+    this._id = localStorage.getItem("user_id");
+    this._nickname = localStorage.getItem("user_nickname");
+    this._username = localStorage.getItem("user_username");
+    this._email = localStorage.getItem("user_email");
+    this._authToken = localStorage.getItem("user_auth_token");
+    this._isEmailVerified =
+      localStorage.getItem("user_is_email_verified") === "true" ? true : false;
   }
 
   // Auth methods
@@ -142,27 +173,13 @@ export class User {
     this.setToLocalStorage(user);
   }
 
-  private setToLocalStorage(user: User | null): void {
-    this.id = user ? user.id : null;
-    this.nickname = user ? user.nickname : null;
-    this.username = user ? user.username : null;
-    this.email = user ? user.email : null;
-    this.authToken = user ? user.authToken : null;
-    this.isEmailVerified = user ? user.isEmailVerified : null;
-  }
-
-  private loadFromLocalStorage(): void {
-    this._id = localStorage.getItem("user_id");
-    this._nickname = localStorage.getItem("user_nickname");
-    this._username = localStorage.getItem("user_username");
-    this._email = localStorage.getItem("user_email");
-    this._authToken = localStorage.getItem("user_auth_token");
-    this._isEmailVerified =
-      localStorage.getItem("user_is_email_verified") === "true" ? true : false;
-  }
-
   public signOut(): void {
-    this.setToLocalStorage(null);
+    localStorage.removeItem("user_id");
+    localStorage.removeItem("user_nickname");
+    localStorage.removeItem("user_username");
+    localStorage.removeItem("user_email");
+    localStorage.removeItem("user_auth_token");
+    localStorage.removeItem("user_is_email_verified");
   }
 
   public async getOne(id: string | null): Promise<User> {
@@ -173,5 +190,14 @@ export class User {
     const user = await UserController.getOne(id!);
     this.setToLocalStorage(user);
     return user;
+  }
+
+  public async sendEmailVerification(email: string): Promise<void> {
+    try {
+      await UserController.sendEmailVerification(email);
+      this.updateIsEmailVerified(true);
+    } catch (e) {
+      ErrorHandler.displayError(e);
+    }
   }
 }

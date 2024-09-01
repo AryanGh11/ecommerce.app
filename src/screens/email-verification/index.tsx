@@ -2,11 +2,11 @@ import Translation from "src/translations/locales/translation";
 import manWithHeadphoneImage from "src/assets/images/man-with-headphone.png";
 
 import { routes } from "src/routes";
+import { User } from "src/components/user";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { ErrorHandler } from "src/abstracts/handleError";
-import { User, UserController } from "src/components/user";
 import { useEnsureUserIsLoggedInOrNot } from "src/utils/ensureUserIsLoggedInOrNot";
 import { SimpleElevatedButton } from "src/shared-components/form/fields/buttons/simple-elevated-button";
 
@@ -30,7 +30,7 @@ export default function EmailVerificationScreen() {
   // send verification email
   const onSubmit = async () => {
     try {
-      await UserController.sendEmailVerification(user.email!);
+      await user.sendEmailVerification(user.email!);
       setEmailHasBeenSent(true);
     } catch (e) {
       ErrorHandler.displayError(e);

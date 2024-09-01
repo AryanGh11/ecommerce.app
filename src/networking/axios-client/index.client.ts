@@ -1,6 +1,7 @@
 import axios from "axios";
 
 import { AxiosError } from "axios";
+import { User } from "src/components/user";
 import { AxiosRequestConfig, AxiosResponse } from "axios";
 import { ErrorHandler } from "../../abstracts/handleError";
 import { ApiError, FaildToParseResponse } from "./index.errors";
@@ -13,6 +14,15 @@ class AxiosClient {
     parser: ResponseParser<T>
   ): Promise<T> {
     try {
+      const user = User.getInstance();
+
+      // Add auth_token to request header if user is logged in
+      if (user?.authToken)
+        config.headers = {
+          auth_token: user.authToken,
+          ...config.headers,
+        };
+
       const response = await axios(config);
 
       try {
