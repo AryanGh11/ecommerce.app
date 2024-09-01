@@ -11,7 +11,7 @@ export default class UserController {
     password: string;
   }): Promise<User> {
     const res = await AxiosClient.post({
-      url: Endpoints.users.auth.signInWithEmailAndPassword,
+      url: Endpoints.auth.signInWithEmailAndPassword,
       parser: (res) => {
         return User.fromJson(res.data);
       },
@@ -36,7 +36,7 @@ export default class UserController {
     password: string;
   }): Promise<User> {
     const res = await AxiosClient.post({
-      url: Endpoints.users.auth.signUpWithEmailAndPassword,
+      url: Endpoints.auth.signUpWithEmailAndPassword,
       parser: (res) => {
         return User.fromJson(res.data);
       },
@@ -53,11 +53,21 @@ export default class UserController {
 
   static async sendEmailVerification(email: string): Promise<void> {
     await AxiosClient.post({
-      url: Endpoints.users.auth.sendEmailVerification,
+      url: Endpoints.auth.sendEmailVerification,
       parser: () => {},
       body: {
         email,
       },
     });
+  }
+
+  static async getOne(id: string): Promise<User> {
+    const user = await AxiosClient.get({
+      url: Endpoints.users.getOne(id),
+      parser: (res) => {
+        return User.fromJson(res.data);
+      },
+    });
+    return user;
   }
 }
