@@ -43,6 +43,17 @@ export default function SignUpScreenForm({
 }: SignUpScreenFormProps) {
   const { t } = useTranslation();
 
+  const onButtonDisabled = (): boolean => {
+    if (
+      nicknameValidator(nickname) ||
+      usernameValidator(username) ||
+      emailValidator(email) ||
+      passwordValidator(password)
+    ) {
+      return true;
+    } else return false;
+  };
+
   return (
     <Form className="flex flex-col gap-8" onSubmit={onSubmit}>
       <div className="flex flex-col gap-5">
@@ -101,12 +112,12 @@ export default function SignUpScreenForm({
       {/* submit button */}
       <SimpleElevatedButton
         id="signUp-button"
-        disabled={false}
+        disabled={onButtonDisabled()}
         onClick={onSubmit}
         text={t(Translation.signUp)}
       />
       {/* sign in button */}
-      <h1 className="text-center text-white">
+      <h1 className="text-center">
         {t(Translation.haveAnAccount)}{" "}
         <Link to={routes.signIn} className="text-primary underline">
           {t(Translation.signInHere)}
