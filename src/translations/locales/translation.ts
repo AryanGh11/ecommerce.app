@@ -19,6 +19,7 @@ class Translation {
   public static pleaseCheckYourEmail = "pleaseCheckYourEmail";
   public static backToHome = "backToHome";
   public static sendEmail = "sendEmail";
+  public static welcome = "welcome";
 }
 
 export default Translation;

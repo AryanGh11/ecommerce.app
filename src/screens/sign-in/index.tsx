@@ -1,6 +1,5 @@
 import SignInScreenForm from "./components/form";
 import Translation from "src/translations/locales/translation";
-import manWithHeadphoneImage from "src/assets/images/man-with-headphone.png";
 
 import { useState } from "react";
 import { routes } from "src/routes";
@@ -54,17 +53,7 @@ export default function SignInScreen() {
   };
 
   return (
-    <section
-      className="flex flex-col justify-between py-32 px-6 text-white"
-      style={{
-        backgroundImage: `url(${manWithHeadphoneImage})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        width: "100%",
-        height: "100svh",
-      }}
-    >
+    <section className="w-full h-[100svh] flex flex-col justify-between py-32 px-6 text-foreground bg-background">
       {/* title & description */}
       <div className="flex flex-col items-center gap-2">
         <h1 className="text-6xl font-inter-bold text-center">

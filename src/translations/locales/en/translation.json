@@ -17,5 +17,6 @@
   "pleaseClickOnThisButtonToSendEmailVerification": "Please click on this button to send email verification",
   "pleaseCheckYourEmail": "Email verification has been sent. Please check you email to complete Sign in",
   "backToHome": "Back to home",
-  "sendEmail": "Send email"
+  "sendEmail": "Send email",
+  "welcome": "Welcome"
 }

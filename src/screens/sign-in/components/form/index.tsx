@@ -79,7 +79,7 @@ export default function SignInScreenForm({
         type="submit"
       />
       {/* sign up button */}
-      <h1 className="text-center text-white">
+      <h1 className="text-center">
         {t(Translation.dontHaveAnAccount)}{" "}
         <Link
           type="button"

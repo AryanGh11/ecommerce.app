@@ -1,5 +1,4 @@
 import Translation from "src/translations/locales/translation";
-import manWithHeadphoneImage from "src/assets/images/man-with-headphone.png";
 
 import { routes } from "src/routes";
 import { User } from "src/components/user";
@@ -38,17 +37,7 @@ export default function EmailVerificationScreen() {
   };
 
   return (
-    <section
-      className="flex flex-col justify-between py-32 px-6 text-white text-center"
-      style={{
-        backgroundImage: `url(${manWithHeadphoneImage})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        width: "100%",
-        height: "100svh",
-      }}
-    >
+    <section className="w-full h-[100svh] flex flex-col justify-between py-32 px-6 text-white text-center bg-white">
       {!emailHasBeenSent ? (
         <>
           <div className="flex flex-col items-center gap-2">

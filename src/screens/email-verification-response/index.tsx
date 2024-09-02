@@ -1,5 +1,4 @@
 import Translation from "src/translations/locales/translation";
-import manWithHeadphoneImage from "src/assets/images/man-with-headphone.png";
 
 import { useEffect } from "react";
 import { routes } from "src/routes";
@@ -33,17 +32,7 @@ export default function EmailVerificationResponseScreen() {
   }, [success, location]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <section
-      className="flex flex-col justify-center items-center gap-16 py-32 px-6 text-white"
-      style={{
-        backgroundImage: `url(${manWithHeadphoneImage})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        width: "100%",
-        height: "100svh",
-      }}
-    >
+    <section className="w-full h-[100svh] flex flex-col justify-center items-center gap-16 py-32 px-6 text-foreground bg-background">
       <div className="flex flex-col gap-2">
         {/* title & description */}
         <h1 className="text-2xl font-inter-bold text-center">
