@@ -54,7 +54,7 @@ export default function Snackbar({ message, type, permanent }: SnackbarProps) {
           style={{ pointerEvents: "none" }}
         >
           <motion.div
-            className={`p-3 gap-2 w-[90%] max-w-[30rem] flex justify-between items-center rounded-md text-sm text-foreground ${
+            className={`p-3 gap-2 w-[90%] max-w-[30rem] flex justify-between items-center rounded-md text-sm text-background ${
               type === SnackbarTypes.success ? "bg-on-background" : "bg-error"
             } `}
           >
@@ -65,7 +65,7 @@ export default function Snackbar({ message, type, permanent }: SnackbarProps) {
               style={{ pointerEvents: "auto" }}
               onClick={handleHideSnackbar}
             >
-              <MenuCloseIcon className="stroke-foreground" />
+              <MenuCloseIcon className="stroke-background" />
             </button>
           </motion.div>
         </motion.div>
