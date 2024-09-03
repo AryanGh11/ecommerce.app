@@ -11,4 +11,7 @@ export class Endpoints {
       return `${baseUrl}/users/${id}`;
     },
   };
+  static products = `${baseUrl}/products`;
+  static testimonials = `${baseUrl}/testimonials`;
+  static categories = `${baseUrl}/categories`;
 }

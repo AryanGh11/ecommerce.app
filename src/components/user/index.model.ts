@@ -201,3 +201,79 @@ export class User {
     }
   }
 }
+
+export class UserSummary {
+  private _id: string;
+  private _nickname: string;
+  private _username: string;
+  private _email: number;
+  private _createdAt: string;
+  private _updatedAt: string;
+
+  constructor({
+    id,
+    nickname,
+    username,
+    email,
+    createdAt,
+    updatedAt,
+  }: {
+    id: string;
+    nickname: string;
+    username: string;
+    email: number;
+    createdAt: string;
+    updatedAt: string;
+  }) {
+    this._id = id;
+    this._nickname = nickname;
+    this._username = username;
+    this._email = email;
+    this._createdAt = createdAt;
+    this._updatedAt = updatedAt;
+  }
+
+  // getters
+  get id(): string {
+    return this._id;
+  }
+
+  get nickname(): string {
+    return this._nickname;
+  }
+
+  get username(): string {
+    return this._username;
+  }
+
+  get email(): number {
+    return this._email;
+  }
+
+  get createdAt(): string {
+    return this._createdAt;
+  }
+
+  get updatedAt(): string {
+    return this._updatedAt;
+  }
+
+  public static fromJson(data: any): UserSummary {
+    return new UserSummary({
+      id: data.id,
+      nickname: data.nickname,
+      username: data.username,
+      email: data.email,
+      createdAt: data.createdAt,
+      updatedAt: data.updatedAt,
+    });
+  }
+
+  public static maybeFromJson(data: any): UserSummary | null {
+    try {
+      return UserSummary.fromJson(data);
+    } catch (e) {
+      return null;
+    }
+  }
+}

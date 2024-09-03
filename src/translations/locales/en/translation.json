@@ -18,5 +18,14 @@
   "pleaseCheckYourEmail": "Email verification has been sent. Please check you email to complete Sign in",
   "backToHome": "Back to home",
   "sendEmail": "Send email",
-  "welcome": "Welcome"
+  "welcome": "Welcome",
+  "hiX": "Hi, {{nickname}}",
+  "whatAreYouLookingForToday": "What are you looking for today?",
+  "usd": "USD {{price}}",
+  "review_one": "{{count}} Review",
+  "review_other": "{{count}} Reviews",
+  "noProductsFound": "No products found",
+  "addToCart": "Add",
+  "removeFromCart": "Remove",
+  "all": "All"
 }

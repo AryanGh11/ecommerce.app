@@ -44,7 +44,7 @@ class SimpleTextInput extends SimpleInput<
             type="string"
             placeholder={placeholder}
             value={value}
-            onChange={(e) => this.onInputChange(e)}
+            onChange={this.onInputChange}
             maxLength={maxLength}
             disabled={disabled}
           />

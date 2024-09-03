@@ -4,7 +4,7 @@
 
 html {
   font-size: 14px;
-  @apply bg-background text-foreground min-w-[250px];
+  @apply bg-background text-foreground min-w-[250px] text-base;
 }
 
 * {
