@@ -1,0 +1,90 @@
+import { CategorySummary } from "../categories";
+import { TestimonialSummary } from "../testimonial";
+
+export class Product {
+  id: string;
+  title: string;
+  description: string;
+  categories: CategorySummary;
+  price: number;
+  quantity: number;
+  images: string[];
+  rating: number;
+  testimonials: TestimonialSummary[];
+  createdAt: string;
+  updatedAt: string;
+
+  constructor(data: {
+    id: string;
+    title: string;
+    description: string;
+    categories: CategorySummary;
+    price: number;
+    quantity: number;
+    images: string[];
+    rating: number;
+    testimonials: TestimonialSummary[];
+    createdAt: string;
+    updatedAt: string;
+  }) {
+    this.id = data.id;
+    this.title = data.title;
+    this.description = data.description;
+    this.categories = data.categories;
+    this.price = data.price;
+    this.quantity = data.quantity;
+    this.images = data.images;
+    this.rating = data.rating;
+    this.testimonials = data.testimonials;
+    this.createdAt = data.createdAt;
+    this.updatedAt = data.updatedAt;
+  }
+
+  public static fromJson(data: any): Product {
+    return new Product(data);
+  }
+}
+
+export class ProductSummary {
+  id: string;
+  title: string;
+  description: string;
+  categoriesCount: number;
+  price: number;
+  quantity: number;
+  images: string[];
+  rating: number;
+  testimonialsCount: number;
+  createdAt: string;
+  updatedAt: string;
+
+  constructor(data: {
+    id: string;
+    title: string;
+    description: string;
+    categoriesCount: number;
+    price: number;
+    quantity: number;
+    images: string[];
+    rating: number;
+    testimonialsCount: number;
+    createdAt: string;
+    updatedAt: string;
+  }) {
+    this.id = data.id;
+    this.title = data.title;
+    this.description = data.description;
+    this.categoriesCount = data.categoriesCount;
+    this.price = data.price;
+    this.quantity = data.quantity;
+    this.images = data.images;
+    this.rating = data.rating;
+    this.testimonialsCount = data.testimonialsCount;
+    this.createdAt = data.createdAt;
+    this.updatedAt = data.updatedAt;
+  }
+
+  public static fromJson(data: any): ProductSummary {
+    return new ProductSummary(data);
+  }
+}

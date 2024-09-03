@@ -20,6 +20,14 @@ class Translation {
   public static backToHome = "backToHome";
   public static sendEmail = "sendEmail";
   public static welcome = "welcome";
+  public static hiX = "hiX";
+  public static whatAreYouLookingForToday = "whatAreYouLookingForToday";
+  public static usd = "usd";
+  public static review = "review";
+  public static noProductsFound = "noProductsFound";
+  public static addToCart = "addToCart";
+  public static removeFromCart = "removeFromCart";
+  public static all = "all";
 }
 
 export default Translation;

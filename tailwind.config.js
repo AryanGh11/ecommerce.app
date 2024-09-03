@@ -11,6 +11,8 @@ module.exports = {
         foreground: "var(--foreground)",
         accent: "var(--accent)",
         grey: "var(--grey)",
+        "grey-light": "var(--grey-light)",
+        "grey-light2": "var(--grey-light2)",
         "grey-dark": "var(--grey-dark)",
       },
       fontFamily: {
@@ -21,15 +23,27 @@ module.exports = {
         "inter-bold": ["inter-bold", "sans"],
         "inter-extra-bold": ["inter-extra-bold", "sans"],
       },
+      fontSize: {
+        base: "14px",
+        sm: "12px",
+        xs: "10px",
+        "2xs": "8px",
+      },
       borderWidth: {
         1: "1px",
       },
       backdropBlur: {
         xs: "2px",
       },
+      gap: {
+        "1/2": "2px",
+      },
     },
   },
-  plugins: [require("daisyui")],
+  plugins: [
+    require("daisyui"),
+    require("tailwind-scrollbar")({ nocompatible: true }),
+  ],
   daisyui: {
     themes: [
       {
@@ -41,6 +55,8 @@ module.exports = {
           "--foreground": "#000000",
           "--accent": "#FFC120",
           "--grey": "#BABABA",
+          "--grey-light": "#F6F6F6",
+          "--grey-light2": "#F3F3F3",
           "--grey-dark": "#7F7F7F",
         },
         dark: {
@@ -51,6 +67,8 @@ module.exports = {
           "--foreground": "#FFFFFF",
           "--accent": "#FFC120",
           "--grey": "#BABABA",
+          "--grey-light": "#F6F6F6",
+          "--grey-light2": "#F3F3F3",
           "--grey-dark": "#7F7F7F",
         },
       },
