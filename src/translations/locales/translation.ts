@@ -28,6 +28,7 @@ class Translation {
   public static addToCart = "addToCart";
   public static removeFromCart = "removeFromCart";
   public static all = "all";
+  public static signOut = "signOut";
 }
 
 export default Translation;

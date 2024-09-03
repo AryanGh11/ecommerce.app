@@ -27,5 +27,6 @@
   "noProductsFound": "No products found",
   "addToCart": "Add",
   "removeFromCart": "Remove",
-  "all": "All"
+  "all": "All",
+  "signOut": "Sign out"
 }

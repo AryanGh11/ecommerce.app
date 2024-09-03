@@ -7,10 +7,10 @@ import { useTranslation } from "react-i18next";
 import { Header } from "src/shared-components/header";
 import { ErrorHandler } from "src/abstracts/handleError";
 import { useCallback, useEffect, useState } from "react";
-import { TabButton, TabButtonSkeleton } from "src/shared-components/tab/button";
 import { TabWrapper } from "src/shared-components/tab/wrapper";
 import { ProductsWrapper } from "src/shared-components/product/wrapper";
 import { ProductsRepository, ProductSummary } from "src/components/product";
+import { TabButton, TabButtonSkeleton } from "src/shared-components/tab/button";
 import { useEnsureUserIsLoggedInOrNot } from "src/utils/ensureUserIsLoggedInOrNot";
 import { SimpleTextInput } from "src/shared-components/form/fields/text-fields/simple-text-input";
 
@@ -136,19 +136,10 @@ export default function HomeScreen() {
           )}
         </TabWrapper>
       </div>
-
       {/* products */}
       <div className="flex flex-1 overflow-auto scrollbar-none">
         <ProductsWrapper products={products} />
       </div>
-      <button
-        onClick={() => {
-          user.signOut();
-          window.location.reload();
-        }}
-      >
-        Signout
-      </button>
     </div>
   );
 }
