@@ -32,7 +32,7 @@ export default class SimpleTextButton extends Component<
     return (
       <button
         id={id}
-        className="h-14 flex items-center justify-center px-16 bg-transparent rounded-full text-foreground font-inter-bold disabled:opacity-50 disabled:cursor-not-allowed [&:not(:disabled)]:hover:opacity-60 overflow-hidden text-ellipsis text-nowrap transition-all"
+        className="h-14 flex items-center justify-center px-16 bg-transparent rounded-full text-primary font-inter-bold disabled:opacity-50 disabled:cursor-not-allowed [&:not(:disabled)]:hover:opacity-60 overflow-hidden text-ellipsis text-nowrap transition-all"
         onClick={(e) => this._onClick(e)}
         disabled={disabled || isLoading}
         title={text}
