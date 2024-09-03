@@ -66,7 +66,7 @@ export default function SignUpScreenForm({
           onChange={setNickname}
           maxLength={100}
           validator={nicknameValidator}
-          icon={<MailIcon className="stroke-on-background2 w-5 h-5" />}
+          icon={<MailIcon className="stroke-on-background w-5 h-5" />}
         />
         {/* username */}
         <SimpleTextInput
@@ -77,7 +77,7 @@ export default function SignUpScreenForm({
           onChange={setUsername}
           maxLength={100}
           validator={usernameValidator}
-          icon={<MailIcon className="stroke-on-background2 w-5 h-5" />}
+          icon={<MailIcon className="stroke-on-background w-5 h-5" />}
         />
         {/* email */}
         <SimpleTextInput
@@ -88,7 +88,7 @@ export default function SignUpScreenForm({
           onChange={setEmail}
           maxLength={100}
           validator={emailValidator}
-          icon={<MailIcon className="stroke-on-background2 w-5 h-5" />}
+          icon={<MailIcon className="stroke-on-background w-5 h-5" />}
         />
         {/* password */}
         <SimplePasswordInput
@@ -99,7 +99,7 @@ export default function SignUpScreenForm({
           onChange={setPassword}
           maxLength={100}
           validator={passwordValidator}
-          icon={<LockIcon className="stroke-on-background2 w-5 h-5" />}
+          icon={<LockIcon className="stroke-on-background w-5 h-5" />}
         />
         {/* forgot password */}
         <SimpleTextButton

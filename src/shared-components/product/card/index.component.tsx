@@ -38,7 +38,7 @@ export default function ProductsCard({ product }: ProductsCardProps) {
   };
 
   return (
-    <div className="flex flex-col gap-5 bg-background p-4 rounded-2xl">
+    <div className="flex flex-col gap-5 bg-background h-fit p-4 rounded-2xl">
       {/* image */}
       <img
         src={product.images[0]}

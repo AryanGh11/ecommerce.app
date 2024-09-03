@@ -49,7 +49,7 @@ export default function SignInScreenForm({
           onChange={setEmail}
           maxLength={100}
           validator={emailValidator}
-          icon={<MailIcon className="stroke-on-background2 w-5 h-5" />}
+          icon={<MailIcon className="stroke-on-background w-5 h-5" />}
         />
         {/* password */}
         <SimplePasswordInput
@@ -60,7 +60,7 @@ export default function SignInScreenForm({
           onChange={setPassword}
           maxLength={100}
           validator={passwordValidator}
-          icon={<LockIcon className="stroke-on-background2 w-5 h-5" />}
+          icon={<LockIcon className="stroke-on-background w-5 h-5" />}
         />
         {/* forgot password */}
         <SimpleTextButton

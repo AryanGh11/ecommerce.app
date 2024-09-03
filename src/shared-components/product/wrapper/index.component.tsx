@@ -8,12 +8,12 @@ export default function ProductsWrapper({ products }: ProductsWrapperProps) {
   const { t } = useTranslation();
 
   return (
-    <div className="p-6 w-full h-full bg-grey-light2">
+    <div className="w-full h-full flex flex-1 overflow-hidden bg-grey-light2 px-6">
       {products ? (
         products.length === 0 ? (
           <h1>{t(Translation.noProductsFound)}</h1>
         ) : (
-          <div className="grid grid-cols-2 gap-4">
+          <div className="w-full h-full grid grid-cols-2 gap-4 bg-grey-light2 overflow-auto scrollbar-none py-6">
             {products.map((product) => (
               <ProductsCard key={product.id} product={product} />
             ))}
@@ -21,7 +21,7 @@ export default function ProductsWrapper({ products }: ProductsWrapperProps) {
         )
       ) : (
         // loading skeleton
-        <div className="grid grid-cols-2 gap-4">
+        <div className="w-full h-full grid grid-cols-2 gap-4 bg-grey-light2 overflow-auto scrollbar-none py-6">
           <ProductsCardSkeleton length={10} />
         </div>
       )}

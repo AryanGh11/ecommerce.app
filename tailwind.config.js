@@ -6,7 +6,7 @@ module.exports = {
       colors: {
         background: "var(--background)",
         "on-background": "var(--on-background)",
-        "on-background2": "var(--on-background2)",
+        "on-background": "var(--on-background)",
         primary: "var(--primary)",
         foreground: "var(--foreground)",
         accent: "var(--accent)",
@@ -48,9 +48,8 @@ module.exports = {
     themes: [
       {
         light: {
-          "--background": "#F6F6F6",
-          "--on-background": "#FFFFFF",
-          "--on-background2": "#BABABA",
+          "--background": "#FFFFFF",
+          "--on-background": "#BABABA",
           "--primary": "#0ACF83",
           "--foreground": "#000000",
           "--accent": "#FFC120",
@@ -62,7 +61,6 @@ module.exports = {
         dark: {
           "--background": "#101010",
           "--on-background": "#000000",
-          "--on-background2": "#000000",
           "--primary": "#0ACF83",
           "--foreground": "#FFFFFF",
           "--accent": "#FFC120",

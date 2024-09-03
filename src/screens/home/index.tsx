@@ -88,7 +88,7 @@ export default function HomeScreen() {
   }, [search]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <div className="flex flex-col gap-6 pt-12 max-h-[100svh]">
+    <div className="flex flex-col gap-6 pt-12 h-[100svh]">
       {/* header */}
       <div className="flex flex-col gap-6 px-6">
         <Header />
@@ -110,7 +110,7 @@ export default function HomeScreen() {
           value={search}
           onChange={setSearch}
           maxLength={100}
-          icon={<SearchIcon className="stroke-on-background2 w-5 h-5" />}
+          icon={<SearchIcon className="stroke-on-background w-5 h-5" />}
         />
         {/* categories tabs */}
         <TabWrapper>
@@ -137,9 +137,7 @@ export default function HomeScreen() {
         </TabWrapper>
       </div>
       {/* products */}
-      <div className="flex flex-1 overflow-auto scrollbar-none">
-        <ProductsWrapper products={products} />
-      </div>
+      <ProductsWrapper products={products} />
     </div>
   );
 }

@@ -59,7 +59,7 @@ export function BaseSimpleTextField({
   return (
     <input
       id={id}
-      className={`w-full h-14 flex justify-center items-center px-4 text-sm rounded-xl bg-white selection:bg-foreground selection:text-background placeholder:text-on-background2 outline outline-on-background2 outline-1 focus:outline-foreground transition-all ${className}`}
+      className={`w-full h-14 flex justify-center items-center px-4 text-sm rounded-xl bg-transparent selection:bg-foreground selection:text-background placeholder:text-on-background outline outline-on-background outline-1 focus:outline-foreground transition-all ${className}`}
       name={name}
       type={type}
       placeholder={placeholder}

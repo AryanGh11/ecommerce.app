@@ -15,7 +15,7 @@ export default function Header() {
       {/* name & logo */}
       <NameWithLogo />
       {/* profile image */}
-      <div className="w-9 h-9 bg-on-background2 rounded-full" />
+      <div className="w-9 h-9 bg-on-background rounded-full" />
 
       {/* navigation bar */}
       <NavigationBar open={openNav} onOpenChanged={setOpenNav} />
