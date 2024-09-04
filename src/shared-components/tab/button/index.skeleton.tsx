@@ -6,7 +6,7 @@ export default function TabButtonSkeleton({ length }: TabButtonSkeletonProps) {
       {Array.from({ length }, (_, i) => (
         <div
           key={i}
-          className="skeleton min-w-20 h-8 rounded-full bg-background"
+          className="skeleton min-w-20 h-8 rounded-full bg-grey-light"
         />
       ))}
     </>
