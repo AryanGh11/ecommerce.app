@@ -1,5 +1,6 @@
 import Translation from "src/translations/locales/translation";
 
+import { Link } from "react-router-dom";
 import { useCartStore } from "src/store";
 import { StarIcon } from "src/assets/icons";
 import { useTranslation } from "react-i18next";
@@ -8,7 +9,6 @@ import { ProductSummary } from "src/components/product";
 import { useCallback, useEffect, useState } from "react";
 import { SimpleOutlineButton } from "../../form/fields/buttons/simple-outline-button";
 import { SimpleElevatedButton } from "../../form/fields/buttons/simple-elevated-button";
-import { Link } from "react-router-dom";
 
 export default function ProductsCard({ product }: ProductsCardProps) {
   const { t } = useTranslation();
@@ -79,7 +79,8 @@ export default function ProductsCard({ product }: ProductsCardProps) {
             <SimpleOutlineButton
               id="home-remove-from-cart-button"
               disabled={false}
-              onClick={() => {
+              onClick={(e) => {
+                e.preventDefault();
                 removeFromCart(product);
               }}
               text={t(Translation.remove)}
@@ -90,7 +91,8 @@ export default function ProductsCard({ product }: ProductsCardProps) {
             <SimpleElevatedButton
               id="home-add-to-cart-button"
               disabled={false}
-              onClick={() => {
+              onClick={(e) => {
+                e.preventDefault();
                 addToCart(product);
               }}
               text={t(Translation.add)}
