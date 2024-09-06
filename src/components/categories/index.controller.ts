@@ -6,13 +6,14 @@ import { BaseController } from "src/composable/base-controller";
 class CategoriesController extends BaseController<
   ICategoriesQuery,
   CategorySummary,
-  Category
+  Category,
+  {},
+  {}
 > {
   constructor() {
     super({
       endpoints: {
         overview: Endpoints.categories,
-        detailed: Endpoints.categories,
       },
       buildSummary: (json: any) => {
         return CategorySummary.fromJson(json);

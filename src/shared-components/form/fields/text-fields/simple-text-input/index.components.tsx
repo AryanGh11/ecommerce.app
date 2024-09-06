@@ -1,8 +1,8 @@
-import SimpleInput from "../index.component";
+import SimpleInput from "../index.components";
 
 import { withTranslation } from "react-i18next";
 import { WithTFunction } from "src/types/WithTFunction";
-import { BaseSimpleTextField } from "../index.component";
+import { BaseSimpleTextField } from "../index.components";
 import { FormFieldErrorMessage } from "../../error-message";
 import { SimpleTextInputProps, SimpleTextInputState } from "./index.interfaces";
 

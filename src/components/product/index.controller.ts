@@ -6,13 +6,14 @@ import { BaseController } from "src/composable/base-controller";
 class ProductsController extends BaseController<
   IProductsQuery,
   ProductSummary,
-  Product
+  Product,
+  {},
+  {}
 > {
   constructor() {
     super({
       endpoints: {
         overview: Endpoints.products,
-        detailed: Endpoints.products,
       },
       buildSummary: (json: any) => {
         return ProductSummary.fromJson(json);

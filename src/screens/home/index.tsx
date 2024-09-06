@@ -27,9 +27,7 @@ export default function HomeScreen() {
   const [search, setSearch] = useState<string>("");
   const [products, setProducts] = useState<ProductSummary[] | null>(null);
   const [categories, setCategories] = useState<CategorySummary[] | null>(null);
-  const [activeCategory, setActiveCategory] = useState<string>(
-    categories ? categories.map((category) => category.id).join(",") : ""
-  );
+  const [activeCategory, setActiveCategory] = useState<string>("all");
 
   const user = User.getInstance();
   const productsRepository = new ProductsRepository();
@@ -58,7 +56,7 @@ export default function HomeScreen() {
       const products = await productsRepository.get({
         query: {
           title: search,
-          categories: activeCategory,
+          categories: activeCategory !== "all" ? activeCategory : undefined,
         },
       });
       setProducts(products);
@@ -76,8 +74,6 @@ export default function HomeScreen() {
     try {
       const categories = await categoriesRepository.get();
       setCategories(categories);
-      // set first category as active
-      setActiveCategory(categories.map((category) => category.id).join(","));
     } catch (e) {
       ErrorHandler.displayError(e);
     }
@@ -115,11 +111,12 @@ export default function HomeScreen() {
         {/* categories tabs */}
         <TabWrapper>
           <TabButton
-            id={categories?.map((category) => category.id).join(",") || ""}
+            id={"all"}
             key={"all"}
             label={t(Translation.all)}
-            active={activeCategory}
-            onActiveChange={setActiveCategory}
+            active={activeCategory === "all"}
+            onClick={setActiveCategory}
+            variant="filled"
           />
           {categories ? (
             categories.map((category) => (
@@ -127,8 +124,9 @@ export default function HomeScreen() {
                 id={category.id}
                 key={category.key}
                 label={category.title}
-                active={activeCategory}
-                onActiveChange={setActiveCategory}
+                active={activeCategory === category.id}
+                onClick={setActiveCategory}
+                variant="filled"
               />
             ))
           ) : (

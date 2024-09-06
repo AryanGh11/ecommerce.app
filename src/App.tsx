@@ -1,6 +1,7 @@
 import HomeScreen from "./screens/home";
 import SignInScreen from "./screens/sign-in";
 import SignUpScreen from "./screens/sign-up";
+import ProductScreen from "./screens/product";
 import EmailVerificationScreen from "./screens/email-verification";
 import EmailVerificationResponseScreen from "./screens/email-verification-response";
 
@@ -53,6 +54,7 @@ export default function App() {
           <Route path={routes.home} element={<HomeScreen />} />
           <Route path={routes.signIn} element={<SignInScreen />} />
           <Route path={routes.signUp} element={<SignUpScreen />} />
+          <Route path={routes.product} element={<ProductScreen />} />
           <Route path="*" element={<Navigate to={routes.home} />} />
         </Routes>
       </Router>

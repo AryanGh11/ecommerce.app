@@ -5,11 +5,11 @@ export class Product {
   id: string;
   title: string;
   description: string;
-  categories: CategorySummary;
+  categories: CategorySummary[];
   price: number;
   quantity: number;
   images: string[];
-  rating: number;
+  rating: 0 | 1 | 2 | 3 | 4 | 5;
   testimonials: TestimonialSummary[];
   createdAt: string;
   updatedAt: string;
@@ -18,11 +18,11 @@ export class Product {
     id: string;
     title: string;
     description: string;
-    categories: CategorySummary;
+    categories: CategorySummary[];
     price: number;
     quantity: number;
     images: string[];
-    rating: number;
+    rating: 0 | 1 | 2 | 3 | 4 | 5;
     testimonials: TestimonialSummary[];
     createdAt: string;
     updatedAt: string;
@@ -43,6 +43,14 @@ export class Product {
   public static fromJson(data: any): Product {
     return new Product(data);
   }
+
+  public static toSummary(product: Product) {
+    return new ProductSummary({
+      ...product,
+      categoriesCount: product.categories.length,
+      testimonialsCount: product.testimonials.length,
+    });
+  }
 }
 
 export class ProductSummary {
@@ -53,7 +61,7 @@ export class ProductSummary {
   price: number;
   quantity: number;
   images: string[];
-  rating: number;
+  rating: 0 | 1 | 2 | 3 | 4 | 5;
   testimonialsCount: number;
   createdAt: string;
   updatedAt: string;
@@ -66,7 +74,7 @@ export class ProductSummary {
     price: number;
     quantity: number;
     images: string[];
-    rating: number;
+    rating: 0 | 1 | 2 | 3 | 4 | 5;
     testimonialsCount: number;
     createdAt: string;
     updatedAt: string;

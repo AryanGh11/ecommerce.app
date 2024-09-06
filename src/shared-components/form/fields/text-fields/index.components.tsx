@@ -71,3 +71,39 @@ export function BaseSimpleTextField({
     />
   );
 }
+
+export function BaseSimpleTextArea({
+  id,
+  name,
+  placeholder,
+  value,
+  onChange,
+  maxLength,
+  disabled,
+  autoFocus,
+  className,
+}: {
+  id: string;
+  name: string;
+  placeholder: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  maxLength: number;
+  disabled?: boolean;
+  autoFocus?: boolean;
+  className?: string;
+}) {
+  return (
+    <textarea
+      id={id}
+      className={`w-full min-h-40 flex justify-center items-center p-4 text-sm rounded-xl bg-transparent selection:bg-foreground selection:text-background placeholder:text-on-background outline outline-on-background outline-1 focus:outline-foreground transition-all ${className}`}
+      name={name}
+      placeholder={placeholder}
+      value={value}
+      onChange={onChange}
+      maxLength={maxLength}
+      disabled={disabled}
+      autoFocus={autoFocus}
+    />
+  );
+}

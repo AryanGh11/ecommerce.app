@@ -18,4 +18,8 @@ export class routes {
   public static get signUp(): string {
     return "/sign-up";
   }
+
+  public static get product(): string {
+    return "/products/:id";
+  }
 }

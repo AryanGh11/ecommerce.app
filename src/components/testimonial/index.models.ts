@@ -7,6 +7,7 @@ export class Testimonial {
   body: string;
   user: UserSummary;
   product: ProductSummary;
+  rating: 0 | 1 | 2 | 3 | 4 | 5;
   createdAt: string;
   updatedAt: string;
 
@@ -16,6 +17,7 @@ export class Testimonial {
     body: string;
     user: UserSummary;
     product: ProductSummary;
+    rating: 0 | 1 | 2 | 3 | 4 | 5;
     createdAt: string;
     updatedAt: string;
   }) {
@@ -24,6 +26,7 @@ export class Testimonial {
     this.body = data.body;
     this.user = data.user;
     this.product = data.product;
+    this.rating = data.rating;
     this.createdAt = data.createdAt;
     this.updatedAt = data.updatedAt;
   }

@@ -10,6 +10,7 @@ export class User {
   private _email: string | null = null;
   private _authToken: string | null = null;
   private _isEmailVerified: boolean | null = null;
+  private _avatarUrl: string | null = null;
 
   private constructor() {}
 
@@ -88,6 +89,17 @@ export class User {
       : localStorage.setItem("user_is_email_verified", value.toString());
   }
 
+  public get avatarUrl(): string | null {
+    return this._avatarUrl;
+  }
+
+  private set avatarUrl(value: string | null) {
+    this._avatarUrl = value;
+    value === null
+      ? localStorage.removeItem("user_avatar_url")
+      : localStorage.setItem("user_avatar_url", value);
+  }
+
   public static fromJson(data: any): User {
     const user = User.getInstance();
 
@@ -97,6 +109,7 @@ export class User {
     user.email = data.email;
     user.authToken = data.authToken;
     user.isEmailVerified = data.isEmailVerified;
+    user.avatarUrl = data.avatarUrl;
 
     return user;
   }
@@ -113,7 +126,8 @@ export class User {
       typeof user.username !== "string" ||
       typeof user.email !== "string" ||
       typeof user.authToken !== "string" ||
-      typeof user.isEmailVerified !== "boolean"
+      typeof user.isEmailVerified !== "boolean" ||
+      typeof user.avatarUrl !== "string"
     ) {
       ErrorHandler.displayError(new Error("invalid user object"));
     }
@@ -124,6 +138,7 @@ export class User {
     localStorage.setItem("user_email", user.email);
     localStorage.setItem("user_auth_token", user.authToken);
     localStorage.setItem("user_is_email_verified", user.isEmailVerified);
+    localStorage.setItem("user_avatar_url", user.avatarUrl);
   }
 
   private loadFromLocalStorage(): void {
@@ -134,6 +149,7 @@ export class User {
     this._authToken = localStorage.getItem("user_auth_token");
     this._isEmailVerified =
       localStorage.getItem("user_is_email_verified") === "true" ? true : false;
+    this._avatarUrl = localStorage.getItem("user_avatar_url");
   }
 
   // Auth methods
@@ -180,6 +196,7 @@ export class User {
     localStorage.removeItem("user_email");
     localStorage.removeItem("user_auth_token");
     localStorage.removeItem("user_is_email_verified");
+    localStorage.removeItem("user_avatar_url");
   }
 
   public async getOne(id: string | null): Promise<User> {
@@ -207,6 +224,7 @@ export class UserSummary {
   private _nickname: string;
   private _username: string;
   private _email: number;
+  private _avatarUrl: string;
   private _createdAt: string;
   private _updatedAt: string;
 
@@ -215,6 +233,7 @@ export class UserSummary {
     nickname,
     username,
     email,
+    avatarUrl,
     createdAt,
     updatedAt,
   }: {
@@ -222,6 +241,7 @@ export class UserSummary {
     nickname: string;
     username: string;
     email: number;
+    avatarUrl: string;
     createdAt: string;
     updatedAt: string;
   }) {
@@ -229,6 +249,7 @@ export class UserSummary {
     this._nickname = nickname;
     this._username = username;
     this._email = email;
+    this._avatarUrl = avatarUrl;
     this._createdAt = createdAt;
     this._updatedAt = updatedAt;
   }
@@ -250,6 +271,10 @@ export class UserSummary {
     return this._email;
   }
 
+  get avatarUrl(): string {
+    return this._avatarUrl;
+  }
+
   get createdAt(): string {
     return this._createdAt;
   }
@@ -264,6 +289,7 @@ export class UserSummary {
       nickname: data.nickname,
       username: data.username,
       email: data.email,
+      avatarUrl: data.avatarUrl,
       createdAt: data.createdAt,
       updatedAt: data.updatedAt,
     });

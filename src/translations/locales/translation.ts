@@ -24,11 +24,23 @@ class Translation {
   public static whatAreYouLookingForToday = "whatAreYouLookingForToday";
   public static usd = "usd";
   public static review = "review";
+  public static reviewX = "reviewX";
   public static noProductsFound = "noProductsFound";
   public static addToCart = "addToCart";
+  public static add = "add";
   public static removeFromCart = "removeFromCart";
+  public static remove = "remove";
   public static all = "all";
   public static signOut = "signOut";
+  public static overview = "overview";
+  public static features = "features";
+  public static specification = "specification";
+  public static newComment = "newComment";
+  public static whatForDoYouWantWriting = "whatForDoYouWantWriting";
+  public static describeItHere = "describeItHere";
+  public static post = "post";
+  public static somethingWentWrong = "somethingWentWrong";
+  public static howMuchDoYouLikeThisProduct = "howMuchDoYouLikeThisProduct";
 }
 
 export default Translation;

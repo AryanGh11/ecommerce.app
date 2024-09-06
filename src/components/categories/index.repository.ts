@@ -7,7 +7,9 @@ import { BaseRepository } from "src/composable/base-repository";
 class CategoriesRepository extends BaseRepository<
   ICategoriesQuery,
   CategorySummary,
-  Category
+  Category,
+  {},
+  {}
 > {
   private static controller = new CategoriesController();
 

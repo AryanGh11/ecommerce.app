@@ -4,20 +4,20 @@ export default function TabButton({
   id,
   label,
   active,
-  onActiveChange,
+  onClick,
+  variant,
 }: TabButtonProps) {
-  const isActive = (): boolean => {
-    if (active === id) return true;
-    return false;
-  };
-
   return (
     <button
       id={id}
       className={`px-4 py-1 text-grey-dark rounded-full ${
-        isActive() && "bg-primary !text-background"
+        active &&
+        (variant === "filled"
+          ? "bg-primary !text-background"
+          : // styles for outlined variant
+            "bg-transparent !text-primary !rounded-none border-solid border-0 border-b-2 border-primary")
       }`}
-      onClick={() => onActiveChange(id)}
+      onClick={() => onClick(id)}
     >
       {label}
     </button>

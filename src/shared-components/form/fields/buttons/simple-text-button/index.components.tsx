@@ -26,16 +26,17 @@ export default class SimpleTextButton extends Component<
   };
 
   render(): ReactNode {
-    const { id, disabled, text } = this.props;
+    const { id, disabled, text, className, type } = this.props;
     const { isLoading } = this.state;
 
     return (
       <button
         id={id}
-        className="h-14 flex items-center justify-center px-16 bg-transparent rounded-full text-primary font-inter-bold disabled:opacity-50 disabled:cursor-not-allowed [&:not(:disabled)]:hover:opacity-60 overflow-hidden text-ellipsis text-nowrap transition-all"
+        className={`h-14 flex items-center justify-center px-16 bg-transparent rounded-full text-primary font-inter-bold disabled:opacity-50 disabled:cursor-not-allowed [&:not(:disabled)]:hover:opacity-60 overflow-hidden text-ellipsis text-nowrap transition-all ${className}`}
         onClick={(e) => this._onClick(e)}
         disabled={disabled || isLoading}
         title={text}
+        type={type}
       >
         {isLoading ? (
           <span className="loading loading-spinner" />

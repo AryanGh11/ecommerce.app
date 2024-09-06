@@ -6,7 +6,9 @@ import { StarIcon } from "./components/StarIcon";
 import { SearchIcon } from "./components/SearchIcon";
 import { CloseEyeIcon } from "./components/CloseEyeIcon";
 import { MenuCloseIcon } from "./components/MenuCloseIcon";
+import { ArrowLeftIcon } from "./components/ArrowLeftIcon";
 import { MoreVerticalIcon } from "./components/MoreVerticalIcon";
+import { ShoppingCartIcon } from "./components/ShoppingCartIcon";
 import { SnackbarErrorIcon } from "./components/SnackbarErrorIcon";
 import { SnackbarSuccessIcon } from "./components/SnackbarSuccessIcon";
 
@@ -19,7 +21,9 @@ export {
   SearchIcon,
   CloseEyeIcon,
   MenuCloseIcon,
+  ArrowLeftIcon,
   MoreVerticalIcon,
+  ShoppingCartIcon,
   SnackbarErrorIcon,
   SnackbarSuccessIcon,
 };

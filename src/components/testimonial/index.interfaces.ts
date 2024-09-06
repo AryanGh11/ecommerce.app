@@ -5,7 +5,18 @@ export interface ITestimonialsQuery
   extends BaseComponentQuery<TestimonialSummary> {
   id?: string;
   title?: string;
-  subtitle?: string;
-  internalName?: string;
-  exercise?: string;
+}
+
+export interface ITestimonialCreate {
+  title: string;
+  body: string;
+  user: string;
+  product: string;
+  rating: number;
+}
+
+export interface ITestimonialUpdate {
+  title?: string;
+  body?: string;
+  rating?: number;
 }

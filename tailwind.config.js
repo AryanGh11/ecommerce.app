@@ -24,10 +24,11 @@ module.exports = {
         "inter-extra-bold": ["inter-extra-bold", "sans"],
       },
       fontSize: {
-        base: "14px",
-        sm: "12px",
-        xs: "10px",
         "2xs": "8px",
+        xs: "10px",
+        sm: "12px",
+        base: "14px",
+        normal: "16px",
       },
       borderWidth: {
         1: "1px",
@@ -54,7 +55,7 @@ module.exports = {
           "--foreground": "#000000",
           "--accent": "#FFC120",
           "--grey": "#BABABA",
-          "--grey-light": "#F6F6F6",
+          "--grey-light": "#F1F1F1",
           "--grey-light2": "#F3F3F3",
           "--grey-dark": "#7F7F7F",
         },

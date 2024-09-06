@@ -1,8 +1,11 @@
+import { TabButtonVariant } from "./index.enum";
+
 export interface TabButtonProps {
   id: string;
   label: string;
-  active: string;
-  onActiveChange: (id: string) => void;
+  active: boolean;
+  onClick: (id: string) => void;
+  variant: keyof typeof TabButtonVariant;
 }
 
 export interface TabButtonSkeletonProps {

@@ -7,7 +7,7 @@ import {
   BaseControllerOverviewResposne,
 } from "./index.models";
 
-class BaseController<Query, S, D> {
+class BaseController<Query, S, D, C, U> {
   private readonly endpoints: BaseControllerEndpoints;
   private readonly buildSummary: (json: any) => S;
   private readonly buildDetailed: (json: any) => D;
@@ -45,12 +45,38 @@ class BaseController<Query, S, D> {
 
   async getOne(id: string): Promise<D> {
     const res = await AxiosClient.get({
-      url: `${this.endpoints.detailed}/${id}`,
+      url: `${this.endpoints.overview}/${id}`,
       parser: (res) =>
         BaseControllerDetailedResposne.fromAxiosResponse<D>(
           res,
           this.buildDetailed
         ),
+    });
+    return res.data;
+  }
+
+  async create(payload: C): Promise<D> {
+    const res = await AxiosClient.post({
+      url: this.endpoints.overview,
+      parser: (res) =>
+        BaseControllerDetailedResposne.fromAxiosResponse<D>(
+          res,
+          this.buildDetailed
+        ),
+      body: payload,
+    });
+    return res.data;
+  }
+
+  async update(payload: U): Promise<D> {
+    const res = await AxiosClient.put({
+      url: this.endpoints.overview,
+      parser: (res) =>
+        BaseControllerDetailedResposne.fromAxiosResponse<D>(
+          res,
+          this.buildDetailed
+        ),
+      body: payload,
     });
     return res.data;
   }

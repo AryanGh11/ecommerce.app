@@ -1,18 +1,24 @@
 import { Endpoints } from "src/constants/endpoints";
-import { ITestimonialsQuery } from "./index.interfaces";
 import { BaseController } from "src/composable/base-controller";
 import { Testimonial, TestimonialSummary } from "./index.models";
+
+import {
+  ITestimonialsQuery,
+  ITestimonialCreate,
+  ITestimonialUpdate,
+} from "./index.interfaces";
 
 class TestimonialsController extends BaseController<
   ITestimonialsQuery,
   TestimonialSummary,
-  Testimonial
+  Testimonial,
+  ITestimonialCreate,
+  ITestimonialUpdate
 > {
   constructor() {
     super({
       endpoints: {
         overview: Endpoints.testimonials,
-        detailed: Endpoints.testimonials,
       },
       buildSummary: (json: any) => {
         return TestimonialSummary.fromJson(json);

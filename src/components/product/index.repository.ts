@@ -7,7 +7,9 @@ import { BaseRepository } from "src/composable/base-repository";
 class ProductsRepository extends BaseRepository<
   IProductsQuery,
   ProductSummary,
-  Product
+  Product,
+  {},
+  {}
 > {
   private static controller = new ProductsController();
 

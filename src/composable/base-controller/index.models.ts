@@ -2,22 +2,9 @@ import { AxiosResponse } from "axios";
 
 type BuildT<T> = (json: any) => T;
 
-/**
- * @description This class represents the response of the api that returns an array of T.
- *              All endpoints that this class is being used for must return
- *              an array of T as a response.
- * @param {T[]} data - The array of T.
- * @template T - The type of the model (e.g. Product).
- */
 export class BaseControllerOverviewResposne<T> {
   constructor(public readonly data: T[]) {}
 
-  /**
-   * @description This function is used to build the response of the get method of the base controller.
-   * @param {AxiosResponse} res - The response from the backend.
-   * @param {BuildT} buildT - The function used to build T from json.
-   * @returns {BaseControllerOverviewResposne<T>} - The response of the get method of the base controller.
-   */
   static fromAxiosResponse<T>(
     res: AxiosResponse,
     buildT: BuildT<T>
@@ -36,22 +23,9 @@ export class BaseControllerOverviewResposne<T> {
   }
 }
 
-/**
- * @description This class represents the response of the api that returns an item of T.
- *              All endpoints that this class is being used for must return
- *              an item of T as a response.
- * @param {T} data - The item of T.
- * @template T - The type of the model (e.g. Product).
- */
 export class BaseControllerDetailedResposne<T> {
   constructor(public readonly data: T) {}
 
-  /**
-   * @description This function is used to build the response of the get method of the base controller.
-   * @param {AxiosResponse} res - The response from the backend.
-   * @param {BuildT} buildT - The function used to build T from json.
-   * @returns {BaseControllerDetailedResposne<T>} - The response of the get method of the base controller.
-   */
   static fromAxiosResponse<T>(
     res: AxiosResponse,
     buildT: BuildT<T>
