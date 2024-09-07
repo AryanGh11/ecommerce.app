@@ -1,4 +1,5 @@
 import { ProductSummary } from "../product";
+import { ErrorHandler } from "src/abstracts/handleError";
 
 export class Category {
   id: string;
@@ -16,6 +17,17 @@ export class Category {
     createdAt: string;
     updatedAt: string;
   }) {
+    if (
+      typeof data.id !== "string" ||
+      typeof data.title !== "string" ||
+      typeof data.key !== "string" ||
+      !Array.isArray(data.products) ||
+      typeof data.createdAt !== "string" ||
+      typeof data.updatedAt !== "string"
+    ) {
+      ErrorHandler.displayError(new Error("Invalida json for Categories"));
+    }
+
     this.id = data.id;
     this.title = data.title;
     this.key = data.key;

@@ -1,5 +1,6 @@
 import { CategorySummary } from "../categories";
 import { TestimonialSummary } from "../testimonial";
+import { ErrorHandler } from "src/abstracts/handleError";
 
 export class Product {
   id: string;
@@ -27,6 +28,22 @@ export class Product {
     createdAt: string;
     updatedAt: string;
   }) {
+    if (
+      typeof data.id !== "string" ||
+      typeof data.title !== "string" ||
+      typeof data.description !== "string" ||
+      !Array.isArray(data.categories) ||
+      typeof data.price !== "number" ||
+      typeof data.quantity !== "number" ||
+      !Array.isArray(data.images) ||
+      data.rating > 5 ||
+      !Array.isArray(data.testimonials) ||
+      typeof data.createdAt !== "string" ||
+      typeof data.updatedAt !== "string"
+    ) {
+      ErrorHandler.displayError(new Error("Invalida json for Products"));
+    }
+
     this.id = data.id;
     this.title = data.title;
     this.description = data.description;

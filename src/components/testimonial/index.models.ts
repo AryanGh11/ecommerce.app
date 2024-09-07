@@ -1,5 +1,6 @@
 import { UserSummary } from "../user";
 import { ProductSummary } from "../product";
+import { ErrorHandler } from "src/abstracts/handleError";
 
 export class Testimonial {
   id: string;
@@ -21,6 +22,19 @@ export class Testimonial {
     createdAt: string;
     updatedAt: string;
   }) {
+    if (
+      typeof data.id !== "string" ||
+      typeof data.title !== "string" ||
+      typeof data.body !== "string" ||
+      typeof data.user !== "object" ||
+      typeof data.product !== "object" ||
+      data.rating > 5 ||
+      typeof data.createdAt !== "string" ||
+      typeof data.updatedAt !== "string"
+    ) {
+      ErrorHandler.displayError(new Error("Invalida json for Testimonials"));
+    }
+
     this.id = data.id;
     this.title = data.title;
     this.body = data.body;
