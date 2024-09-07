@@ -41,6 +41,10 @@ class Translation {
   public static post = "post";
   public static somethingWentWrong = "somethingWentWrong";
   public static howMuchDoYouLikeThisProduct = "howMuchDoYouLikeThisProduct";
+  public static email = "email";
+  public static password = "password";
+  public static nickname = "nickname";
+  public static username = "username";
 }
 
 export default Translation;

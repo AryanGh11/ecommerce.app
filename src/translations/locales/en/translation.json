@@ -40,5 +40,9 @@
   "describeItHere": "Describe it here...",
   "post": "Post",
   "somethingWentWrong": "Something went wrong!",
-  "howMuchDoYouLikeThisProduct": "How much do you like this product?"
+  "howMuchDoYouLikeThisProduct": "How much do you like this product?",
+  "email": "Email",
+  "password": "Password",
+  "nickname": "Nickname",
+  "username": "Username"
 }

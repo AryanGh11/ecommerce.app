@@ -44,7 +44,7 @@ export default function SignInScreenForm({
         <SimpleTextInput
           id="signin-email"
           name="email"
-          placeholder="Email"
+          placeholder={t(Translation.email)}
           value={email}
           onChange={setEmail}
           maxLength={100}
@@ -55,7 +55,7 @@ export default function SignInScreenForm({
         <SimplePasswordInput
           id="signin-password"
           name="password"
-          placeholder="Password"
+          placeholder={t(Translation.password)}
           value={password}
           onChange={setPassword}
           maxLength={100}
@@ -66,7 +66,7 @@ export default function SignInScreenForm({
         <SimpleTextButton
           id="signin-forgotPassword"
           onClick={() => {}}
-          text="Forgot Password"
+          text={t(Translation.forgotPassword)}
           disabled={false}
         />
       </div>

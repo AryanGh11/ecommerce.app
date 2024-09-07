@@ -20,8 +20,8 @@ export default function TestimonialCard({ testimonial }: TestimonialCardProps) {
           />
           <div className="flex flex-col gap-3">
             <div className="flex flex-col gap-1">
-              {/* user's name */}
-              <p>{testimonial.user.username}</p>
+              {/* user's nickname */}
+              <p>{testimonial.user.nickname}</p>
               {/* rating */}
               <RatingStar
                 value={rating}
