@@ -37,7 +37,7 @@ export default function EmailVerificationScreen() {
   };
 
   return (
-    <section className="w-full h-[100svh] flex flex-col justify-between py-32 px-6 text-white text-center bg-white">
+    <section className="w-full h-[100svh] flex flex-col justify-center gap-20 py-32 px-6 text-foreground text-center bg-background">
       {!emailHasBeenSent ? (
         <>
           <div className="flex flex-col items-center gap-2">
