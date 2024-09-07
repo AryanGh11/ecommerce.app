@@ -22,7 +22,12 @@ export function useEnsureUserIsLoggedInOrNot(route: routes) {
         navigate(routes.signUp);
       }
     } else if (user.isEmailVerified === false) {
-      if (route === routes.emailVerification) {
+      if (
+        route === routes.emailVerification ||
+        route === routes.signIn ||
+        route === routes.signUp ||
+        route === routes.home
+      ) {
         navigate(routes.emailVerification);
       } else if (route === routes.emailVerificationResponse) {
         navigate(routes.emailVerificationResponse);
